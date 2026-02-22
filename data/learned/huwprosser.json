@@ -1,0 +1,16 @@
+{
+  "source": "https://github.com/huwprosser",
+  "title": "Huw Prosser - AI Projects Author",
+  "type": "developer_profile",
+  "learned_at": "2025-01-15",
+  "summary": "Developer creating AI productivity tools including Jarvis MLX and Web Whisper",
+  "key_concepts": {
+    "projects": [
+      "jarvis-mlx - Stark-level productivity on MacBook (offline)",
+      "web-whisper - Browser-based speech recognition"
+    ],
+    "focus": "Local/offline AI, productivity tools, Apple Silicon optimization",
+    "philosophy": "Tony Stark-style AI assistants running locally"
+  },
+  "tags": ["developer", "local-ai", "mlx", "productivity", "jarvis"]
+}

@@ -1,0 +1,22 @@
+{
+  "source": "https://github.com/openclaw/openclaw",
+  "title": "OpenClaw - Personal AI Assistant (Any OS, Any Platform)",
+  "type": "project_reference",
+  "learned_at": "2025-01-15",
+  "summary": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞",
+  "key_concepts": {
+    "tagline": "The lobster way",
+    "platforms": ["Any OS", "Any Platform"],
+    "features": [
+      "Cross-platform AI assistant",
+      "Open source",
+      "Personal/local focus"
+    ],
+    "ecosystem": {
+      "clawhub": "Skill registry for agents",
+      "docs": "docs.openclaw.ai"
+    }
+  },
+  "github": "https://github.com/openclaw/openclaw",
+  "tags": ["ai-assistant", "cross-platform", "open-source", "personal-ai"]
+}

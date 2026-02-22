@@ -1,0 +1,22 @@
+{
+  "source": "https://clawhub.ai/",
+  "title": "ClawHub - Fast Skill Registry for AI Agents",
+  "type": "platform_reference",
+  "learned_at": "2025-01-15",
+  "summary": "A fast skill registry for agents, with vector search",
+  "key_concepts": {
+    "purpose": "Skill registry for AI agents",
+    "features": [
+      "Fast skill lookup",
+      "Vector search",
+      "Agent skill management"
+    ],
+    "use_cases": [
+      "AI agent skill sharing",
+      "Skill discovery",
+      "Agent capability expansion"
+    ]
+  },
+  "related": ["openclaw"],
+  "tags": ["skill-registry", "vector-search", "ai-agents", "marketplace"]
+}
