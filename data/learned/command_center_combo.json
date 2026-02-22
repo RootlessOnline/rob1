@@ -1,0 +1,13 @@
+{
+  "source": "https://docs.google.com/document/d/1pSGf3D_3Ju1FJUgjzCdBCMLS8SByK6bsNqZjAW_eqdg",
+  "title": "Combining Moltbot + Claude for AI Command Center",
+  "type": "technical_guide",
+  "learned_at": "2025-01-15",
+  "summary": "The biggest opportunity of our generation - building AI command centers",
+  "key_concepts": {
+    "tools": ["Moltbot", "Claude"],
+    "concept": "AI Command Center for business operations",
+    "opportunity": "Biggest opportunity of our generation"
+  },
+  "tags": ["command-center", "moltbot", "claude", "ai-operations"]
+}

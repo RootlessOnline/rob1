@@ -1,0 +1,13 @@
+{
+  "source": "https://github.com/Zie619/n8n-workflows/tree/main/workflows",
+  "title": "n8n Workflow Templates Repository",
+  "type": "automation_reference",
+  "learned_at": "2025-01-15",
+  "summary": "Collection of n8n automation workflow templates",
+  "key_concepts": {
+    "platform": "n8n - open-source workflow automation",
+    "purpose": "Pre-built automation templates",
+    "use_cases": ["Business automation", "AI integrations", "Data pipelines"]
+  },
+  "tags": ["n8n", "automation", "workflows", "integration"]
+}

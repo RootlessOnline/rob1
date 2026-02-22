@@ -1,0 +1,18 @@
+{
+  "source": "https://docs.google.com/document/d/1LM83Yoy6IsKDOiwSbDVmWCmoqrEN227VOgjz7jjz7ls",
+  "title": "Claude Code Free Setup Guide",
+  "type": "technical_guide",
+  "learned_at": "2025-01-15",
+  "summary": "Claude Code now runs fully on device, free forever",
+  "key_concepts": {
+    "features": [
+      "Runs 100% on device",
+      "Slash commands",
+      "MCP servers",
+      "Edit mode",
+      "Sub-agents"
+    ],
+    "benefit": "No usage costs, runs locally forever"
+  },
+  "tags": ["claude-code", "local-ai", "free", "development"]
+}

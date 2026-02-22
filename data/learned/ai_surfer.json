@@ -1,0 +1,17 @@
+{
+  "source": "https://theaisurfer.com/",
+  "title": "The AI Surfer - AI Philosophy",
+  "type": "philosophy_guide",
+  "learned_at": "2025-01-15",
+  "summary": "90% AI 10% HUMAN 100% DOING WHAT YOU LOVE - AI-Human collaboration philosophy",
+  "key_concepts": {
+    "philosophy": "90% AI, 10% Human, 100% Doing What You Love",
+    "free_ai_tools": {
+      "google_ai_studio": "https://aistudio.google.com/apikey",
+      "openrouter": "https://openrouter.ai/models?q=free",
+      "groq_ai": "https://console.groq.com/keys"
+    },
+    "focus": "AI-assisted lifestyle and productivity"
+  },
+  "tags": ["ai-philosophy", "free-tools", "productivity", "human-ai"]
+}

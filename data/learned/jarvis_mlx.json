@@ -1,0 +1,24 @@
+{
+  "source": "https://github.com/huwprosser/jarvis-mlx",
+  "title": "Jarvis MLX - Stark-Level Productivity (Offline MacBook)",
+  "type": "project_reference",
+  "learned_at": "2025-01-15",
+  "summary": "An all-in-one solution to stark-level productivity running offline on MacBook using SOTA technology",
+  "key_concepts": {
+    "platform": "Apple Silicon (MLX framework)",
+    "features": [
+      "Runs 100% offline",
+      "SOTA (State of the Art) models",
+      "MacBook optimized",
+      "Productivity-focused"
+    ],
+    "tech_stack": [
+      "Apple MLX",
+      "Local LLMs",
+      "Speech recognition",
+      "Automation"
+    ],
+    "philosophy": "Tony Stark-style AI assistant running locally"
+  },
+  "tags": ["mlx", "apple-silicon", "offline-ai", "jarvis", "productivity", "local-llm"]
+}

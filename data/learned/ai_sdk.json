@@ -1,0 +1,26 @@
+{
+  "source": "https://ai-sdk.dev/getting-started",
+  "title": "AI SDK - TypeScript Toolkit for AI Applications",
+  "type": "framework_docs",
+  "learned_at": "2025-01-15",
+  "summary": "The AI SDK is the TypeScript toolkit designed to help developers build AI-powered applications",
+  "key_concepts": {
+    "platforms": ["React", "Next.js", "Vue", "Svelte", "Node.js"],
+    "features": [
+      "Unified API for multiple AI providers",
+      "Streaming responses",
+      "Chat interfaces",
+      "Object generation",
+      "Embeddings"
+    ],
+    "providers": ["OpenAI", "Anthropic", "Google", "Groq", "Custom"],
+    "use_cases": [
+      "Chat applications",
+      "Text generation",
+      "Image generation",
+      "Embeddings search",
+      "AI agents"
+    ]
+  },
+  "tags": ["typescript", "ai-sdk", "vercel", "framework", "llm"]
+}

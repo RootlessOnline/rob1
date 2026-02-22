@@ -1,0 +1,23 @@
+{
+  "source": "https://github.com/huwprosser/web-whisper",
+  "title": "Web Whisper - Browser-based Speech Recognition",
+  "type": "project_reference",
+  "learned_at": "2025-01-15",
+  "summary": "Web-based Whisper implementation for browser speech recognition",
+  "key_concepts": {
+    "tech": ["Whisper AI", "WebAssembly", "Browser API"],
+    "features": [
+      "Client-side speech-to-text",
+      "No server required",
+      "Privacy-focused",
+      "Real-time transcription"
+    ],
+    "use_cases": [
+      "Voice commands",
+      "Transcription",
+      "Accessibility",
+      "AI assistants"
+    ]
+  },
+  "tags": ["whisper", "speech-to-text", "browser", "wasm", "offline"]
+}

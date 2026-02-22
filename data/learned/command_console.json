@@ -1,0 +1,63 @@
+{
+  "source": "https://docs.google.com/document/d/1ccpnEII8_8OCqilaL91XzAzwAv0diAcpjSAuHqEHV14",
+  "title": "AI Command Console Setup Guide - CIA Style Geospatial Dashboard",
+  "type": "technical_guide",
+  "learned_at": "2025-01-15",
+  "summary": "Browser-based AI-powered geospatial dashboard for real-time tracking and monitoring",
+  "key_concepts": {
+    "core_features": [
+      "Live aircraft tracking",
+      "Satellite map layers",
+      "Traffic cam feeds",
+      "Real-time updates",
+      "AI scene detection",
+      "Tactical command center UI"
+    ],
+    "method_1_no_code": {
+      "best_for": "Non-engineers or fast prototypes",
+      "steps": [
+        "Create Frontend: Vercel + Next.js template or Replit",
+        "Add Map Layer: Mapbox or Google Maps API with satellite tiles"
+      ]
+    },
+    "method_2_full_dev": {
+      "best_for": "Engineers",
+      "frontend": "Next.js + Mapbox GL + WebSocket for real-time updates",
+      "backend": "Node.js or FastAPI - Pull aircraft + traffic feeds, Stream via WebSocket",
+      "ai_integration": {
+        "gemini": ["Geospatial understanding", "Map level reasoning"],
+        "opus": ["Structured outputs", "Event logic", "System coordination"]
+      },
+      "optional": "Add YOLO or OpenCV for real object detection",
+      "deploy": {
+        "frontend": "Vercel",
+        "backend": "Render / Fly.io / Railway"
+      },
+      "cost": "Server: $10-25/month, API keys: Pay per usage"
+    },
+    "method_3_advanced_ops": {
+      "best_for": "Serious builders",
+      "features": [
+        "Multi-layer toggles",
+        "Real-time alert system",
+        "Historical playback",
+        "Event logging database",
+        "Scheduled AI summaries"
+      ],
+      "tech_stack": {
+        "database": "PostgreSQL for persistence",
+        "caching": "Redis",
+        "workers": "Background workers for analysis"
+      }
+    },
+    "how_it_works": [
+      "Backend pulls live global data",
+      "AI processes events and context",
+      "Frontend renders movement in real time",
+      "Overlays update dynamically",
+      "System loops continuously"
+    ],
+    "key_insight": "It's not one magic model. It's coordination between models + live data + UI."
+  },
+  "tags": ["dashboard", "geospatial", "ai", "real-time", "command-center", "websocket", "mapbox", "nextjs"]
+}
