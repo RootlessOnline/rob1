@@ -2548,6 +2548,26 @@ export default function Home() {
           </div>
         </Link>
         
+        {/* BizSitePro Link */}
+        <Link href="/bizsitepro" title="BizSitePro - Website Business">
+          <div style={{
+            width: '36px',
+            height: '36px',
+            background: `${COLORS.moods.happy}20`,
+            border: `2px solid ${COLORS.moods.happy}`,
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.2s',
+            boxShadow: `0 0 10px ${COLORS.moods.happy}40`
+          }}>
+            🏢
+          </div>
+        </Link>
+        
         <div style={{ flex: 1 }} />
         
         <button

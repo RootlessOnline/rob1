@@ -205,6 +205,20 @@ export default function JARVISPage() {
               textTransform: 'uppercase'
             }}>{m}</button>
           ))}
+          <Link href="/bizsitepro">
+            <button style={{
+              padding: '10px 20px',
+              background: 'linear-gradient(135deg, #00ff88, #00cc6a)',
+              border: 'none',
+              color: '#000',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              boxShadow: '0 0 15px #00ff8840'
+            }}>🏢 BizSitePro</button>
+          </Link>
         </nav>
       </header>
 
