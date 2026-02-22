@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import * as fs from 'fs'
 import * as path from 'path'
 
-const OLLAMA_HOST = 'http://localhost:11434'
-const OLLAMA_MODEL = 'gemma2:2b'  // Fast model for quick responses
+const OLLAMA_HOST = process.env.OLLAMA_BASE_URL || 'http://localhost:11434'
+const OLLAMA_MODEL = process.env.LOCAL_MODEL || 'llama3.2'  // User's fast local model
+const REASONING_MODEL = process.env.REASONING_MODEL || 'deepseek-r1:14b'  // For deep questions
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // ⚡ PRE-CACHED SEFIROT RESPONSES (Instant, no LLM)
