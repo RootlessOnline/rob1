@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-19T16:16:49.071Z",
+  "sessions": [],
+  "patterns": {
+    "favoriteTopics": [],
+    "anubisCommonMoods": [],
+    "relationshipHealth": "unknown",
+    "totalConversations": 0
+  },
+  "observations": [
+    {
+      "id": "1771517809071",
+      "text": "Anubis felt mysterious | Top: mysterious:62%, curious:45%, pondering:30%",
+      "timestamp": "2026-02-19T16:16:49.071Z"
+    }
+  ],
+  "currentSession": null
+}

@@ -1,0 +1,74 @@
+{
+  "version": "3.0",
+  "lastUpdated": "2026-02-19T16:16:48.370Z",
+  "soul": {
+    "emotions": {
+      "happy": 20,
+      "angry": 5,
+      "annoyed": 5,
+      "pondering": 30,
+      "reflecting": 25,
+      "curious": 45,
+      "playful": 15,
+      "melancholy": 10,
+      "mysterious": 62
+    },
+    "currentMood": "mysterious",
+    "shortTermMemory": [
+      {
+        "id": "1771517808227",
+        "thought": "Q: \"hey anubis...\"",
+        "timestamp": "2026-02-19T16:16:48.227Z",
+        "emotions": {
+          "happy": 20,
+          "angry": 5,
+          "annoyed": 5,
+          "pondering": 30,
+          "reflecting": 25,
+          "curious": 45,
+          "playful": 15,
+          "melancholy": 10,
+          "mysterious": 62
+        },
+        "slot": 1,
+        "fate": "none",
+        "moodChanges": []
+      }
+    ],
+    "goldenMemories": [],
+    "selfRealizations": [],
+    "discoveredEmotions": [],
+    "moralCompass": {
+      "hey anubis": {
+        "timesFelt": 1,
+        "timesPromoted": 0,
+        "timesRejected": 0,
+        "timesAscended": 0
+      }
+    },
+    "personalityCore": {
+      "baseEmotions": {
+        "happy": 20,
+        "angry": 5,
+        "annoyed": 5,
+        "pondering": 30,
+        "reflecting": 25,
+        "curious": 45,
+        "playful": 15,
+        "melancholy": 10,
+        "mysterious": 60
+      },
+      "traits": [
+        "mysterious",
+        "curious",
+        "thoughtful"
+      ],
+      "conversationsHad": 1,
+      "created": "2026-02-19T16:16:30.401Z"
+    },
+    "personalityTraits": [],
+    "level": 1,
+    "xp": 10,
+    "recentMoodChanges": []
+  }
+}

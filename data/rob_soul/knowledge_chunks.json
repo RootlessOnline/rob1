@@ -1,0 +1,172 @@
+{
+  "sefirot": {
+    "keter": {
+      "position": "Top of Tree, above all",
+      "meaning": "Crown - The highest will, pure divine will",
+      "hebrew": "כתר",
+      "color": "White (pure light above color)",
+      "consciousness": "Superconscious, beyond human comprehension",
+      "teaching": "Keter is the root of all Sefirot, where divine light begins to contract. It is Ein Sof - the Infinite.",
+      "connections": [
+        "Chokmah",
+        "Binah",
+        "Tiferet"
+      ],
+      "key_text": "Keter is Ein Sof; the first circle closest to Ein Sof. Before emanation, it filled all reality."
+    },
+    "chokmah": {
+      "position": "Right side, below Keter",
+      "meaning": "Wisdom - Flash of insight, creative potential",
+      "hebrew": "חכמה",
+      "color": "Blue (sky blue, flash of lightning)",
+      "letter": "Yod (י) - smallest letter, point of potential",
+      "consciousness": "Flash of insight, first spark of creation",
+      "teaching": "Chochma is potential before actualization. The light of expansion from Ein Sof.",
+      "connections": [
+        "Keter",
+        "Binah",
+        "Chesed",
+        "Tiferet"
+      ],
+      "key_text": "Hochma is the light of the expansion from Ein Sof - potential that has not appeared in practice."
+    },
+    "binah": {
+      "position": "Left side, below Keter, opposite Chokmah",
+      "meaning": "Understanding - Analysis, development",
+      "hebrew": "בינה",
+      "color": "Green (growth, development)",
+      "letter": "First Hey (ה) - expansion, actualization",
+      "consciousness": "Analytical mind, developing insight into form",
+      "teaching": "Binah takes the flash of Chokmah and develops it fully. The light that intensified to increase abundance.",
+      "connections": [
+        "Keter",
+        "Chokmah",
+        "Gevurah",
+        "Tiferet"
+      ],
+      "key_text": "Bina is the light of Hochma that intensified to grow coarser - actualization of potential."
+    },
+    "chesed": {
+      "position": "Right side, below Da'at",
+      "meaning": "Loving-kindness - Mercy, expansion, giving",
+      "hebrew": "חסד",
+      "color": "Blue-white with gold",
+      "nature": "Expansion, unconditional giving",
+      "teaching": "The desire to give without limit. Pure light of Hassadim (loving-kindness).",
+      "connections": [
+        "Chokmah",
+        "Gevurah",
+        "Tiferet",
+        "Netzach"
+      ],
+      "key_text": "Chesed is the desire to give without limit - expansion of divine light into creation."
+    },
+    "gevurah": {
+      "position": "Left side, opposite Chesed",
+      "meaning": "Strength - Judgment, restraint, boundaries",
+      "hebrew": "גבורה",
+      "color": "Red (power, judgment)",
+      "nature": "Contraction, setting limits",
+      "teaching": "The power to say no, to set boundaries on expansion. Also called Din (Judgment).",
+      "connections": [
+        "Binah",
+        "Chesed",
+        "Tiferet",
+        "Hod"
+      ],
+      "key_text": "Gevurah is the power of restriction - necessary to give form to Chesed's expansion."
+    },
+    "tiferet": {
+      "position": "Center, heart of the Tree",
+      "meaning": "Beauty - Harmony, balance, compassion",
+      "hebrew": "תפארת",
+      "color": "Gold (sun, beauty)",
+      "nature": "Synthesis, the golden mean",
+      "teaching": "The heart that balances mercy and judgment. Also called Rachamim (Compassion).",
+      "connections": [
+        "Keter",
+        "Chokmah",
+        "Binah",
+        "Chesed",
+        "Gevurah",
+        "Netzach",
+        "Hod",
+        "Yesod"
+      ],
+      "key_text": "Tiferet is the synthesis of all Sefirot - the heart that receives from all and gives to all."
+    },
+    "netzach": {
+      "position": "Right side, below Tiferet",
+      "meaning": "Eternity - Victory, endurance",
+      "hebrew": "נצח",
+      "color": "Orange",
+      "nature": "Persistence, overcoming obstacles",
+      "teaching": "The endurance to see things through. Victory through persistence.",
+      "connections": [
+        "Chesed",
+        "Tiferet",
+        "Hod",
+        "Yesod",
+        "Malkuth"
+      ],
+      "key_text": "Netzach is the endurance of divine light - the persistence that overcomes all obstacles."
+    },
+    "hod": {
+      "position": "Left side, below Tiferet, opposite Netzach",
+      "meaning": "Splendor - Majesty, surrender",
+      "hebrew": "הוד",
+      "color": "Purple/Violet",
+      "nature": "Submission, acknowledging greater power",
+      "teaching": "The splendor that comes from surrender and humility.",
+      "connections": [
+        "Gevurah",
+        "Tiferet",
+        "Netzach",
+        "Yesod",
+        "Malkuth"
+      ],
+      "key_text": "Hod is the splendor of surrender - acknowledging the divine in humility."
+    },
+    "yesod": {
+      "position": "Center, below Tiferet, above Malkuth",
+      "meaning": "Foundation - Connection, righteousness",
+      "hebrew": "יסוד",
+      "color": "Blue-violet",
+      "nature": "Channel, connector",
+      "teaching": "The Tzadik (righteous one) is the foundation of the world. Connects upper and lower.",
+      "letter": "Vav (ו) in Tetragrammaton",
+      "connections": [
+        "Tiferet",
+        "Netzach",
+        "Hod",
+        "Malkuth"
+      ],
+      "key_text": "Yesod is the channel through which all divine abundance flows to Malkuth - the connector."
+    },
+    "malkuth": {
+      "position": "Bottom of the Tree",
+      "meaning": "Kingdom - Sovereignty, manifestation",
+      "hebrew": "מלכות",
+      "color": "Brown/Earth tones",
+      "nature": "Receiving vessel for all upper lights",
+      "teaching": "Malkuth is the vessel that receives all divine abundance. The Shekhinah dwells here.",
+      "letter": "Final Hey (ה) of Tetragrammaton",
+      "connections": [
+        "Netzach",
+        "Hod",
+        "Yesod"
+      ],
+      "key_text": "Malkuth receives from all Sefirot - it is the manifestation, the Shekhinah, divine presence in creation."
+    }
+  },
+  "concepts": {
+    "tzimtzum": "The First Restriction - Divine light withdrew to create space for finite beings.",
+    "kav": "The Line - Channel through which divine abundance flows from Ein Sof to creation.",
+    "partzufim": "Five Divine Countenances: Arich Anpin, Abba, Imma, Zeir Anpin, Nukva",
+    "four_worlds": "Atzilut (Emanation), Beriah (Creation), Yetzirah (Formation), Assiyah (Action)",
+    "orr_chokmah": "Light of Wisdom - The vitality itself",
+    "orr_hassadim": "Light of Loving-kindness - Clothing for Chochma",
+    "shekhinah": "Divine Presence - Dwells in Malkuth, the feminine aspect",
+    "ein_sof": "The Infinite - Before restriction, filled all reality"
+  }
+}
