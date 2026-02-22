@@ -1,0 +1,13 @@
+{
+  "source": "https://github.com/numman-ali/openskills",
+  "title": "OpenSkills - Universal Skills Loader for AI Agents",
+  "type": "framework_reference",
+  "learned_at": "2025-01-15",
+  "summary": "Universal skills loader for AI coding agents - npm package",
+  "key_concepts": {
+    "install": "npm i -g openskills",
+    "purpose": "Load skills into AI coding agents",
+    "use_case": "Extend AI agent capabilities with predefined skills"
+  },
+  "tags": ["skills", "ai-agents", "npm", "automation"]
+}
