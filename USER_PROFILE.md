@@ -144,6 +144,23 @@
 
 ---
 
+## 📚 RESOURCES Q IS INTERESTED IN
+
+### Automation & AI Agents
+- **Moltbot** - Messaging gateway for AI (WhatsApp, Telegram, Discord)
+- **n8n workflows** - 50+ automation templates
+- **The AI Surfer** - 90/10 philosophy (90% AI, 10% Human)
+- **Claude Code** - Free local coding AI
+
+### What This Tells Me:
+- Q wants ROB to be **autonomous**
+- Q wants **mobile access** (WhatsApp/Telegram)
+- Q likes the **90/10 philosophy** - AI handles 90%
+- Q wants **revenue streams** from AI
+- See `LEARNED_RESOURCES.md` for full details
+
+---
+
 ## 🎯 CURRENT SESSION GOAL
 
 **User's implicit ask:** "Make ROB fast, make it work, stop talking about why it's slow - just fix it."
