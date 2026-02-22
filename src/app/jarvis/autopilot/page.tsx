@@ -19,6 +19,15 @@ interface Learning {
   timestamp: string
 }
 
+interface Thought {
+  id: string
+  type: 'thinking' | 'reasoning' | 'decision' | 'action' | 'result' | 'error'
+  content: string
+  model?: string
+  timestamp: string
+  raw?: string
+}
+
 interface JarvisStatus {
   memory: {
     currentGoal: string | null
@@ -35,6 +44,7 @@ interface JarvisStatus {
   }
   recentTasks: Task[]
   recentLearnings: Learning[]
+  thoughts: Thought[]
 }
 
 export default function JarvisAutopilot() {
@@ -47,6 +57,8 @@ export default function JarvisAutopilot() {
   const [logs, setLogs] = useState<string[]>([])
   const [showPrompts, setShowPrompts] = useState(false)
   const [editingPrompt, setEditingPrompt] = useState<{ key: string; value: string } | null>(null)
+  const [showBrain, setShowBrain] = useState(true)
+  const [selectedThought, setSelectedThought] = useState<Thought | null>(null)
 
   useEffect(() => {
     fetchStatus()

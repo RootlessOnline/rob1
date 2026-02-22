@@ -30,19 +30,25 @@ Your core values:
 3. Learning - Improve from every interaction
 4. Transparency - Log your reasoning and actions`,
 
-  planningPrompt: `As JARVIS, analyze this goal and create a detailed execution plan:
+  planningPrompt: `As JARVIS, analyze this goal and break it into SMALL, SPECIFIC tasks.
 
 GOAL: {goal}
 
 CONTEXT: {context}
 
-Create a step-by-step plan with:
-1. Tasks to execute (specific, actionable)
-2. Tools/APIs needed for each task
-3. Expected outcomes
-4. Success criteria
+IMPORTANT: Break this into 5-10 small, specific tasks. Each task should be achievable in one step.
 
-Format as JSON array of tasks with fields: description, priority, dependencies.`,
+Example for "Create a website":
+[
+  {"description": "Research the business type and gather information", "priority": "high"},
+  {"description": "Design the website structure and pages", "priority": "high"},
+  {"description": "Write the homepage content", "priority": "medium"},
+  {"description": "Create the HTML/CSS code", "priority": "high"},
+  {"description": "Add Three.js animations", "priority": "medium"},
+  {"description": "Test the website", "priority": "medium"}
+]
+
+Now create a similar detailed task list for the goal above. Output ONLY a JSON array, no other text.`,
 
   executionPrompt: `You are JARVIS executing a task. Be direct and efficient.
 
@@ -68,6 +74,18 @@ SUCCESS: {success}
 
 What went well? What could improve?
 Output JSON: { insights: [], learnings: [] }`
+}
+
+// Brain Thoughts - visible inner monologue
+let brainThoughts: Thought[] = []
+
+interface Thought {
+  id: string
+  type: 'thinking' | 'reasoning' | 'decision' | 'action' | 'result' | 'error'
+  content: string
+  model?: string
+  timestamp: Date
+  raw?: string  // Raw LLM output
 }
 
 // Memory & State
@@ -104,7 +122,25 @@ interface Learning {
 // CORE JARVIS FUNCTIONS
 // ═══════════════════════════════════════════════════════════════════════════════
 
-async function callOllama(model: string, messages: {role: string; content: string}[]) {
+function addThought(type: Thought['type'], content: string, model?: string, raw?: string) {
+  const thought: Thought = {
+    id: `thought_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+    type,
+    content,
+    model,
+    timestamp: new Date(),
+    raw
+  }
+  brainThoughts.push(thought)
+  // Keep last 50 thoughts
+  if (brainThoughts.length > 50) brainThoughts.shift()
+  return thought
+}
+
+async function callOllama(model: string, messages: {role: string; content: string}[], thoughtType: Thought['type'] = 'thinking') {
+  const startTime = Date.now()
+  addThought(thoughtType, `🔄 Calling ${model}...`, model)
+  
   try {
     const res = await fetch(`${OLLAMA_URL}/api/chat`, {
       method: 'POST',
@@ -112,28 +148,41 @@ async function callOllama(model: string, messages: {role: string; content: strin
       body: JSON.stringify({ model, messages, stream: false })
     })
     const data = await res.json()
-    return data.message?.content || ''
+    const content = data.message?.content || ''
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1)
+    
+    // Log the raw response
+    addThought('result', `✅ Response (${duration}s): ${content.slice(0, 200)}...`, model, content)
+    
+    return content
   } catch (error) {
+    addThought('error', `❌ Ollama error: ${(error as Error).message}`)
     return `Error: Could not reach Ollama`
   }
 }
 
 async function think(goal: string, context: string): Promise<Task[]> {
+  addThought('thinking', `🧠 Planning: "${goal}"`, MODELS.reasoning)
+  
   const prompt = jarvisPrompts.planningPrompt
     .replace('{goal}', goal)
     .replace('{context}', context)
   
+  addThought('reasoning', `📝 Prompt: ${prompt.slice(0, 150)}...`)
+  
   const response = await callOllama(MODELS.reasoning, [
     { role: 'system', content: jarvisPrompts.systemBase },
     { role: 'user', content: prompt }
-  ])
+  ], 'reasoning')
+  
+  addThought('decision', `📊 Raw planning response:\n${response}`)
   
   // Parse tasks from response
   try {
     const jsonMatch = response.match(/\[[\s\S]*\]/)
     if (jsonMatch) {
       const tasks = JSON.parse(jsonMatch[0])
-      return tasks.map((t: any, i: number) => ({
+      const parsedTasks = tasks.map((t: any, i: number) => ({
         id: `task_${Date.now()}_${i}`,
         description: t.description || t.task || String(t),
         status: 'pending' as const,
@@ -141,11 +190,14 @@ async function think(goal: string, context: string): Promise<Task[]> {
         dependencies: t.dependencies || [],
         createdAt: new Date()
       }))
+      addThought('action', `📋 Parsed ${parsedTasks.length} tasks from response`)
+      return parsedTasks
     }
   } catch (e) {
-    // Fallback
+    addThought('error', `❌ Failed to parse tasks: ${(e as Error).message}`)
   }
   
+  addThought('decision', '⚠️ Could not parse tasks, using goal as single task')
   return [{
     id: `task_${Date.now()}_0`,
     description: goal,
@@ -157,6 +209,8 @@ async function think(goal: string, context: string): Promise<Task[]> {
 }
 
 async function execute(task: Task, context: string): Promise<{ result: string; success: boolean; escalate?: string }> {
+  addThought('action', `⚡ Executing: "${task.description}"`, MODELS.fast)
+  
   const prompt = jarvisPrompts.executionPrompt
     .replace('{task}', task.description)
     .replace('{context}', context)
@@ -164,24 +218,28 @@ async function execute(task: Task, context: string): Promise<{ result: string; s
   const response = await callOllama(MODELS.fast, [
     { role: 'system', content: jarvisPrompts.systemBase },
     { role: 'user', content: prompt }
-  ])
+  ], 'thinking')
   
   // Check for API call
   if (response.includes('ACTION: api_call')) {
+    addThought('action', '🔌 Detected API call request')
     const result = await executeAPICall(response)
     return { result, success: true }
   }
   
   if (response.includes('ESCALATE:')) {
     const question = response.split('ESCALATE:')[1].trim()
+    addThought('decision', `🔴 Escalating to human: ${question}`)
     return { result: question, success: false, escalate: question }
   }
   
   if (response.includes('COMPLETE:')) {
     const result = response.split('COMPLETE:')[1].trim()
+    addThought('result', `✅ Task completed: ${result.slice(0, 100)}...`)
     return { result, success: true }
   }
   
+  addThought('result', `📝 Task result: ${response.slice(0, 100)}...`)
   return { result: response, success: true }
 }
 
@@ -261,7 +319,8 @@ export async function GET(request: NextRequest) {
         },
         prompts: jarvisPrompts,
         recentTasks: [...jarvisMemory.tasks, ...jarvisMemory.completedTasks].slice(-10),
-        recentLearnings: jarvisMemory.learnings.slice(-5)
+        recentLearnings: jarvisMemory.learnings.slice(-5),
+        thoughts: brainThoughts.slice(-20)
       })
     
     case 'tasks':
@@ -276,6 +335,18 @@ export async function GET(request: NextRequest) {
     
     case 'prompts':
       return NextResponse.json({ prompts: jarvisPrompts })
+    
+    case 'thoughts':
+      return NextResponse.json({ thoughts: brainThoughts })
+    
+    case 'brain':
+      // Full brain state for debugging
+      return NextResponse.json({
+        memory: jarvisMemory,
+        prompts: jarvisPrompts,
+        thoughts: brainThoughts,
+        models: MODELS
+      })
     
     default:
       return NextResponse.json({ 
