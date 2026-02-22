@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 interface Agent {
   id: string
@@ -37,10 +38,28 @@ export default function JARVISPage() {
   const [response, setResponse] = useState('')
   const [loading, setLoading] = useState(false)
   const [businessPlan, setBusinessPlan] = useState<BusinessPlan | null>(null)
+  const [ollamaStatus, setOllamaStatus] = useState<'checking' | 'connected' | 'disconnected'>('checking')
+  const [availableModels, setAvailableModels] = useState<string[]>([])
   
   useEffect(() => {
     fetchAgents()
+    checkOllamaStatus()
   }, [])
+  
+  const checkOllamaStatus = async () => {
+    try {
+      const res = await fetch('http://localhost:11434/api/tags')
+      if (res.ok) {
+        const data = await res.json()
+        setAvailableModels(data.models?.map((m: {name: string}) => m.name) || [])
+        setOllamaStatus('connected')
+      } else {
+        setOllamaStatus('disconnected')
+      }
+    } catch {
+      setOllamaStatus('disconnected')
+    }
+  }
   
   const fetchAgents = async () => {
     try {
@@ -149,9 +168,28 @@ export default function JARVISPage() {
         borderBottom: '1px solid #333',
         paddingBottom: '20px'
       }}>
-        <div>
-          <h1 style={{ fontSize: '32px', margin: 0, color: '#4a9eff' }}>🤖 JARVIS</h1>
-          <p style={{ margin: '5px 0 0 0', color: '#888', fontSize: '14px' }}>AI Automation & Business Engine</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <Link href="/" title="Back to ROB">
+            <button style={{
+              width: '40px',
+              height: '40px',
+              background: '#1a1a2e',
+              border: '2px solid #333',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '18px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s'
+            }}>
+              ←
+            </button>
+          </Link>
+          <div>
+            <h1 style={{ fontSize: '32px', margin: 0, color: '#4a9eff' }}>🤖 JARVIS</h1>
+            <p style={{ margin: '5px 0 0 0', color: '#888', fontSize: '14px' }}>AI Automation & Business Engine</p>
+          </div>
         </div>
         <nav style={{ display: 'flex', gap: '10px' }}>
           {['dashboard', 'agents', 'business'].map(m => (
@@ -169,6 +207,52 @@ export default function JARVISPage() {
           ))}
         </nav>
       </header>
+
+      {/* Connection Status Banner */}
+      <div style={{
+        marginBottom: '20px',
+        padding: '15px 20px',
+        borderRadius: '10px',
+        background: ollamaStatus === 'connected' ? 'linear-gradient(135deg, #1a2a1a, #0a1a0a)' : 
+                    ollamaStatus === 'disconnected' ? 'linear-gradient(135deg, #2a1a1a, #1a0a0a)' : '#1a1a2e',
+        border: `1px solid ${ollamaStatus === 'connected' ? '#2a8a4a' : 
+                          ollamaStatus === 'disconnected' ? '#8a2a2a' : '#333'}`,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
+            background: ollamaStatus === 'connected' ? '#4aff8a' :
+                        ollamaStatus === 'disconnected' ? '#ff4a4a' : '#888',
+            boxShadow: ollamaStatus === 'connected' ? '0 0 10px #4aff8a' :
+                       ollamaStatus === 'disconnected' ? '0 0 10px #ff4a4a' : 'none',
+            animation: 'pulse 2s infinite'
+          }} />
+          <span style={{ color: ollamaStatus === 'connected' ? '#4aff8a' : 
+                                 ollamaStatus === 'disconnected' ? '#ff4a4a' : '#888' }}>
+            {ollamaStatus === 'checking' && '🔄 Checking Ollama connection...'}
+            {ollamaStatus === 'connected' && `🟢 Ollama Connected • ${availableModels.length} models available`}
+            {ollamaStatus === 'disconnected' && '🔴 Ollama Disconnected • Run "ollama serve" in terminal'}
+          </span>
+        </div>
+        {ollamaStatus === 'disconnected' && (
+          <button onClick={checkOllamaStatus} style={{
+            padding: '8px 16px',
+            background: '#4a9eff',
+            border: 'none',
+            borderRadius: '6px',
+            color: '#000',
+            cursor: 'pointer',
+            fontWeight: 'bold'
+          }}>
+            Retry
+          </button>
+        )}
+      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '15px', marginBottom: '30px' }}>
         {[
@@ -280,8 +364,20 @@ export default function JARVISPage() {
       </div>
       
       <footer style={{ marginTop: '30px', textAlign: 'center', color: '#444', fontSize: '12px' }}>
-        JARVIS v1.0 • Powered by Ollama • 100% Local & Free
+        <div style={{ marginBottom: '10px' }}>
+          JARVIS v1.0 • Powered by Ollama • 100% Local & Free
+        </div>
+        <div style={{ color: '#666', fontSize: '11px' }}>
+          To run locally: Install Ollama → Run "ollama serve" → Pull models with "ollama pull llama3.2"
+        </div>
       </footer>
+      
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+      `}</style>
     </div>
   )
 }

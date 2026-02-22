@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback, memo } from 'react'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 // Dynamic import for Three.js component (no SSR)
 const SefirotTree3D = dynamic(() => import('@/components/SefirotTree3D'), {
@@ -2517,6 +2518,35 @@ export default function Home() {
             {b.icon}
           </button>
         ))}
+        
+        {/* Divider */}
+        <div style={{ 
+          width: '28px', 
+          height: '2px', 
+          background: COLORS.stone, 
+          margin: '4px 0',
+          borderRadius: '1px'
+        }} />
+        
+        {/* JARVIS Link */}
+        <Link href="/jarvis" title="JARVIS Dashboard">
+          <div style={{
+            width: '36px',
+            height: '36px',
+            background: `${COLORS.crystalBlue}20`,
+            border: `2px solid ${COLORS.crystalBlue}`,
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.2s',
+            boxShadow: `0 0 10px ${COLORS.crystalBlue}40`
+          }}>
+            🤖
+          </div>
+        </Link>
         
         <div style={{ flex: 1 }} />
         

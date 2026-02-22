@@ -1,0 +1,22 @@
+# JARVIS Systemd Service
+# Place this file at: ~/.config/systemd/user/jarvis.service
+# 
+# To enable:
+#   systemctl --user enable jarvis
+#   systemctl --user start jarvis
+#
+# To check status:
+#   systemctl --user status jarvis
+
+[Unit]
+Description=JARVIS AI Assistant
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ollama serve
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
