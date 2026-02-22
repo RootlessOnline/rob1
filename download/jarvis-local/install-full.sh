@@ -42,20 +42,17 @@ detect_system() {
 
 # Install system dependencies
 install_system_deps() {
-    echo -e "${CYAN}📦 Installing system dependencies...${NC}"
+    echo -e "${CYAN}📦 Checking system dependencies...${NC}"
     
-    sudo apt update
-    # Ubuntu 24.04+ uses t64 package names
-    # Note: nodejs/npm already installed from NodeSource, skip to avoid conflict
-    sudo apt install -y \
-        build-essential git curl wget \
-        python3 python3-pip \
-        ffmpeg espeak \
-        libasound2t64 libatk-bridge2.0-0t64 libatk1.0-0t64 \
-        libcups2t64 libdbus-1-3 libdrm2 libgbm1 \
-        libgtk-3-0t64 libnspr4 libnss3 \
-        libxcomposite1 libxdamage1 libxrandr2 \
-        xdg-utils fonts-liberation || true
+    # Most packages are likely already installed, install missing ones individually
+    local packages="build-essential git curl wget python3 python3-pip ffmpeg espeak libasound2t64 libatk-bridge2.0-0t64 libatk1.0-0t64 libcups2t64 libdbus-1-3 libdrm2 libgbm1 libgtk-3-0t64 libnspr4 libnss3 libxcomposite1 libxdamage1 libxrandr2 xdg-utils fonts-liberation"
+    
+    for pkg in $packages; do
+        if ! dpkg -l | grep -q "^ii  $pkg"; then
+            echo "  Installing $pkg..."
+            sudo apt install -y $pkg 2>/dev/null || true
+        fi
+    done
     
     # Install Bun (faster than npm)
     if ! command -v bun &> /dev/null; then
@@ -64,7 +61,7 @@ install_system_deps() {
         export PATH="$HOME/.bun/bin:$PATH"
     fi
     
-    echo -e "${GREEN}✅ System dependencies installed${NC}"
+    echo -e "${GREEN}✅ System dependencies ready${NC}"
     echo ""
 }
 
