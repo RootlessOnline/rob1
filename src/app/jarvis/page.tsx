@@ -205,6 +205,20 @@ export default function JARVISPage() {
               textTransform: 'uppercase'
             }}>{m}</button>
           ))}
+          <Link href="/jarvis/autopilot">
+            <button style={{
+              padding: '10px 20px',
+              background: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
+              border: 'none',
+              color: '#fff',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              boxShadow: '0 0 15px #9b59b640'
+            }}>🧠 Autopilot</button>
+          </Link>
           <Link href="/bizsitepro">
             <button style={{
               padding: '10px 20px',
