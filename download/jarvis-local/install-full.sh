@@ -45,12 +45,22 @@ install_system_deps() {
     echo -e "${CYAN}📦 Installing system dependencies...${NC}"
     
     sudo apt update
+    # Try Ubuntu 24.04 package names first, fall back to older names
     sudo apt install -y \
         build-essential git curl wget \
         nodejs npm \
         python3 python3-pip \
         ffmpeg espeak \
-        chromium-browser \
+        libasound2t64 libatk-bridge2.0-0t64 libatk1.0-0t64 \
+        libcups2t64 libdbus-1-3 libdrm2 libgbm1 \
+        libgtk-3-0t64 libnspr4 libnss3 \
+        libxcomposite1 libxdamage1 libxrandr2 \
+        xdg-utils fonts-liberation 2>/dev/null || \
+    sudo apt install -y \
+        build-essential git curl wget \
+        nodejs npm \
+        python3 python3-pip \
+        ffmpeg espeak \
         libasound2 libatk-bridge2.0-0 libatk1.0-0 \
         libcups2 libdbus-1-3 libdrm2 libgbm1 \
         libgtk-3-0 libnspr4 libnss3 \
