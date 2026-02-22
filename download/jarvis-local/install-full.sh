@@ -46,9 +46,9 @@ install_system_deps() {
     
     sudo apt update
     # Ubuntu 24.04+ uses t64 package names
+    # Note: npm removed - NodeSource nodejs includes npm already
     sudo apt install -y \
         build-essential git curl wget \
-        nodejs npm \
         python3 python3-pip \
         ffmpeg espeak \
         libasound2t64 libatk-bridge2.0-0t64 libatk1.0-0t64 \
