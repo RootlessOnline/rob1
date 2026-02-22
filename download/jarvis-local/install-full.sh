@@ -46,7 +46,7 @@ install_system_deps() {
     
     sudo apt update
     # Ubuntu 24.04+ uses t64 package names
-    # Note: npm removed - NodeSource nodejs includes npm already
+    # Note: nodejs/npm already installed from NodeSource, skip to avoid conflict
     sudo apt install -y \
         build-essential git curl wget \
         python3 python3-pip \
@@ -55,7 +55,7 @@ install_system_deps() {
         libcups2t64 libdbus-1-3 libdrm2 libgbm1 \
         libgtk-3-0t64 libnspr4 libnss3 \
         libxcomposite1 libxdamage1 libxrandr2 \
-        xdg-utils fonts-liberation
+        xdg-utils fonts-liberation || true
     
     # Install Bun (faster than npm)
     if ! command -v bun &> /dev/null; then
