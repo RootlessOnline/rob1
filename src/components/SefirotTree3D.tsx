@@ -529,11 +529,11 @@ export default function SefirotTree3D({
   const [orbitSpeedState, setOrbitSpeedState] = useState(orbitSpeed)
   
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+    <div style={{ width: '100%', height: '100%', position: 'relative', background: '#050510' }}>
       <Canvas
         camera={{ position: [0, 0, orbitRadius], fov: 50 }}
-        gl={{ alpha: true, antialias: true }}
-        style={{ background: 'transparent' }}
+        gl={{ antialias: true }}
+        style={{ background: '#050510' }}
       >
         {/* Deep space background */}
         <color attach="background" args={['#050510']} />
